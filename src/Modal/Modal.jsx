@@ -4,7 +4,7 @@ import { Component } from "react";
 
 import { ModalBackdrop, ModalContent } from "./Modal.styled";
 
-// const modalRoot = document.querySelector('modal-root')
+// const modalRoot = document.querySelector('#modal-root')
 
 export class Modal  extends Component {
     componentDidMount() {
@@ -27,10 +27,6 @@ export class Modal  extends Component {
       };
 
       handleBackdropClick = evt => {
-        // console.log('Кликнули в бекдроп');
-    
-        // console.log('currentTarget: ', event.currentTarget);
-        // console.log('target: ', event.target);
     
         if (evt.currentTarget === evt.target) {
           this.props.onClose();
@@ -38,10 +34,14 @@ export class Modal  extends Component {
       };
 
       render () {
-    return (
+//   return createPortal(<ModalBackdrop>
+//     <ModalContent>{this.props.children}</ModalContent>
+// </ModalBackdrop>, modalRoot)
+return (
         <ModalBackdrop onClick={this.handleBackdropClick}>
             <ModalContent>{this.props.children}</ModalContent>
         </ModalBackdrop>)
+        
     }
 }
 
